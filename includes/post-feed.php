@@ -1,14 +1,6 @@
-<div class="fl-post-feed-post<?php if($settings->image_position == 'beside') echo ' fl-post-feed-image-beside'; if(has_post_thumbnail() && $settings->show_image) echo ' fl-post-feed-has-image'; ?>" itemscope itemtype="<?php FLPostGridModule::schema_itemtype(); ?>">
+<div class="fl-post-feed-post<?php if($settings->image_position == 'beside') echo ' fl-post-feed-image-beside'; if(has_post_thumbnail() && $settings->show_image) echo ' fl-post-feed-has-image'; ?>" itemscope itemtype="<?php BMSPortfolioGridModule::schema_itemtype(); ?>">
 
-	<?php FLPostGridModule::schema_meta(); ?>
-	
-	<?php if(has_post_thumbnail() && $settings->show_image && $settings->image_position == 'above-title') : ?>
-	<div class="fl-post-feed-image">
-		<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-			<?php the_post_thumbnail($settings->image_size); ?>
-		</a>
-	</div>
-	<?php endif; ?>
+	<?php BMSPortfolioGridModule::schema_meta(); ?>
 
 	<div class="fl-post-feed-header">
 		<h2 class="fl-post-feed-title" itemprop="headline">
@@ -48,7 +40,7 @@
 		<?php endif; ?>
 	</div>
 
-	<?php if(has_post_thumbnail() && $settings->show_image && in_array($settings->image_position, array('above', 'beside'))) : ?>
+	<?php if(has_post_thumbnail() && $settings->show_image) : ?>
 	<div class="fl-post-feed-image">
 		<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 			<?php the_post_thumbnail($settings->image_size); ?>
