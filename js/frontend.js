@@ -45,20 +45,26 @@
 	  
 		_gridLayout: function()
 		{
-			var wrap = $(this.wrapperClass);
-			
-			wrap.masonry({
-				columnWidth         : this.nodeClass + ' .fl-post-grid-sizer',
-				gutter              : parseInt(this.settings.postSpacing),
-				isFitWidth          : true,
-				itemSelector        : this.postClass,
-				transitionDuration  : 0
+			wrap = $(this.wrapperClass);
+
+			wrap.isotope({
+				itemSelector             : this.postClass,
+				filter                   : '*',
+  				layoutMode               : 'masonry',
+				masonry: {
+			    	columnWidth         : this.nodeClass + ' .fl-post-grid-sizer',
+			    	gutter              : parseInt(this.settings.postSpacing),
+					isFitWidth          : true,
+					itemSelector        : this.postClass,
+					transitionDuration  : 0
+			  	}
 			});
 				
 			wrap.imagesLoaded( $.proxy( function() {
 				this._gridLayoutMatchHeight();
-				wrap.masonry();
+				wrap.isotope();
 			}, this ) );
+
 		},
 	  
 		_gridLayoutMatchHeight: function()
@@ -85,6 +91,12 @@
 				'wrapSelector' : this.wrapperClass,
 				'itemSelector' : '.fl-post-gallery-post'
 			});
+
+			wrap = $(this.wrapperClass);
+				
+			wrap.imagesLoaded( $.proxy( function() {
+				wrap.isotope();
+			}, this ) );
 		},
 	
 		_initInfiniteScroll: function()
@@ -136,3 +148,4 @@
 	};
 
 })(jQuery);
+
