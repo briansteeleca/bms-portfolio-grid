@@ -4,6 +4,64 @@ wp_reset_query();
 // Get the query data.
 $query = FLBuilderLoop::query($settings);
 
+// Show filters if "Show Filters" option is set to Yes
+if($settings->show_filters == '1' && $query->have_posts()) :
+
+	// Display taxonomy terms for filtering portfolio grid
+	$taxonomy = 'portfolio_category';
+	// Get all terms for taxonomy
+	$terms = get_terms($taxonomy);
+
+	?>
+
+	<div class="filter-wrapper">
+
+	<?php
+
+	if ( $terms && !is_wp_error( $terms ) ) :
+
+	  foreach ( $terms as $term ) {
+
+		// TODO: this is too specific for general use - should be an option
+		if ($term->slug == 'vertical') : 
+
+			$vertical_term = get_term_by( 'slug', 'vertical', $taxonomy);
+			$vertical_term_id = $vertical_term->term_id; 
+			$vertical_child_terms = get_terms( array( 'taxonomy' => 'portfolio_category', 'parent' => $vertical_term_id ) );
+			?>
+			<ul class="cat-list filter-list">
+				<li class="cat-item filter-item selected"><a class="all" href="#"><?php _e( 'All Verticals', 'fl-builder' ); ?></a></li>
+				<?php foreach ( $vertical_child_terms as $vertical_child_term ) { ?>
+					<li class="cat-item filter-item"><a class="<?php echo $vertical_child_term->slug ?>" href="<?php echo get_term_link($vertical_child_term->slug, $taxonomy); ?>"><?php echo $vertical_child_term->name; ?></a></li>
+				<?php } ?>
+			</ul>
+		<?php endif;
+
+		// TODO: this is too specific for general use - should be an option
+		if ($term->slug == 'accelerator') : 
+
+			$accelerator_term = get_term_by( 'slug', 'accelerator', $taxonomy);
+			$accelerator_term_id = $accelerator_term->term_id; 
+			$accelerator_child_terms = get_terms( array( 'taxonomy' => 'portfolio_category', 'parent' => $accelerator_term_id ) );
+			?>
+			<ul class="accel-list filter-list">
+				<li class="accel-item filter-item selected"><a class="all" href="#"><?php _e( 'All Accelerators', 'fl-builder' ); ?></a></li>
+				<?php foreach ( $accelerator_child_terms as $accelerator_child_term ) { ?>
+					<li class="accel-item filter-item"><a class="<?php echo $accelerator_child_term->slug ?>" href="<?php echo get_term_link($accelerator_child_term->slug, $taxonomy); ?>"><?php echo $accelerator_child_term->name; ?></a></li>
+				<?php } ?>
+			</ul>
+		<?php endif;
+	  }
+
+	endif;
+	?>
+
+	</div><!-- filter-wrapper -->
+
+<?php endif; ?>
+ 
+<?php
+
 // Render the posts.
 if($query->have_posts()) :
 
@@ -23,6 +81,7 @@ if($query->have_posts()) :
 </div>
 <div class="fl-clear"></div>
 <?php endif; ?>
+
 <?php
 
 // Render the pagination.
@@ -33,25 +92,10 @@ if($settings->pagination != 'none' && $query->have_posts()) :
 	<?php FLBuilderLoop::pagination($query); ?>
 </div>
 <?php endif; ?>
+
+<div class="fl-post-grid-empty" style="display:none"><?php _e( 'No posts found. Please make your search less specific.', 'fl-builder' ); ?></div>
+
 <?php
-
-// Render the empty message.
-if(!$query->have_posts() && (defined('DOING_AJAX') || isset($_REQUEST['fl_builder']))) :
-
-?>
-<div class="fl-post-grid-empty">
-	<?php 
-	if (isset($settings->no_results_message)) :
-		echo $settings->no_results_message;
-	else :
-		_e( 'No posts found.', 'fl-builder' );
-	endif; 
-	?>
-</div>
-	
-<?php
-
-endif;
 
 wp_reset_postdata();
 
