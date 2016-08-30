@@ -199,6 +199,14 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 						'size'          => '4',
 						'description'   => 'px'
 					),
+					'post_height'    => array(
+						'type'          => 'text',
+						'label'         => __('Post Height', 'fl-builder'),
+						'default'       => '200',
+						'maxlength'     => '3',
+						'size'          => '4',
+						'description'   => 'px'
+					),
 					'post_spacing'  => array(
 						'type'          => 'text',
 						'label'         => __('Post Spacing', 'fl-builder'),

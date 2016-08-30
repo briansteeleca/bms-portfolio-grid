@@ -8,6 +8,7 @@
 			pagination: '<?php echo $settings->pagination; ?>',
 			postSpacing: '<?php echo $settings->post_spacing; ?>',
 			postWidth: '<?php echo $settings->post_width; ?>',
+			postHeight: '<?php echo $settings->post_height; ?>',
 			matchHeight: '<?php echo $settings->match_height; ?>',
 			showFilters: <?php echo $settings->show_filters; ?>
 		});

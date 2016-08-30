@@ -305,12 +305,6 @@ body .fl-post-feed-meta {
 	right: 0;
 }
 
-/* TODO: make this an option in settings */
-.bms-portfolio-grid-front > img {
-	width: 295px;
-	height: 189px;
-}
-
 /* back, initially hidden pane */
 .bms-portfolio-grid-back {
 	-webkit-transform: rotateY(-180deg);
