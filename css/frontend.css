@@ -4,16 +4,23 @@
 	position: relative;
 }
 .fl-post-grid-post {
-	background: #fff;
-	border: 1px solid #e6e6e6;
+	background: transparent;
+	border: none !important;
 	visibility: hidden;
 }
+.flipper,
+.fl-post-grid-image {
+	width: 100%;
+	height: 100%;
+}
+
 .fl-post-grid-image img {
-	height: auto !important;
-	width: 100% !important;
+	display: block;
+	border-radius: 7px;
 }
 .fl-post-grid-text {
 	padding: 20px;
+	border-radius: 7px;
 }
 .fl-post-grid-title {
 	padding-bottom: 7px;
@@ -22,6 +29,7 @@ body .fl-post-grid-text,
 body .fl-post-grid-content p {
 	font-size: 14px;
 	line-height: 22px;
+	color: #000;
 }
 body .fl-post-grid-content p:last-of-type {
 	margin-bottom: 0;
@@ -41,9 +49,30 @@ body .fl-post-grid-meta {
 	padding-bottom: 10px;
 }
 .fl-post-grid-more {
-	margin-top: 10px;
+	margin-top: 0;
 	display: inline-block;
+	text-transform: uppercase;
 }
+
+.bms-portfolio-grid-website {
+ 	width:40%;
+ 	position:absolute;
+ 	bottom:10px;
+ 	left:20px;
+}
+.bms-portfolio-grid-social {
+	width:40%;
+	position:absolute;
+	bottom:10px;
+	right:20px;
+}
+.bms-portfolio-grid-social .fl-icon-wrap {
+	float: right;
+}
+.bms-portfolio-grid-social .fl-icon i {
+	font-size: 20px;
+}
+
 .fl-post-grid #infscr-loading {
 	bottom: 0;
 	left: 0;
@@ -212,4 +241,105 @@ body .fl-post-feed-meta {
 	font-size: 16px;
 	padding: 20px;
 	text-align: center;
+}
+
+
+/* Flip Code modified from https://davidwalsh.name/css-flip
+========================================================================== */
+/* entire container, keeps perspective */
+.bms-portfolio-grid-container {
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+	-webkit-transform-style: preserve-3d;
+		    transform-style: preserve-3d;
+}
+
+/* this is to override a bootstrap style for .media */
+.bms-portfolio-grid-container.media {
+	margin-top: 0;
+}
+
+/*  flip the pane when hovered */
+.bms-portfolio-grid-container:hover .bms-portfolio-grid-back {
+	-webkit-transform: rotateY(0deg);
+		    transform: rotateY(0deg);
+}
+.bms-portfolio-grid-container:hover .bms-portfolio-grid-front {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+	-webkit-transition: 0.6s;
+			transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+		    transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.bms-portfolio-grid-front, .bms-portfolio-grid-back {
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	-webkit-transition: 0.6s;
+	        transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+/*  front pane, placed above back */
+.bms-portfolio-grid-front {
+	z-index: 2;
+	-webkit-transform: rotateY(0deg);
+		    transform: rotateY(0deg);	
+}
+
+/* back, initially hidden pane */
+.bms-portfolio-grid-back {
+	-webkit-transform: rotateY(-180deg);
+	        transform: rotateY(-180deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color:#fff;
+	padding: 20px;
+}
+
+
+/* Filter styling
+========================================================================== */
+.filter-wrapper {
+	padding: 20px 0 40px;
+}
+
+.filter-list {
+	list-style: none;
+	text-align: center;
+	padding: 10px 0;
+}
+
+.filter-item {
+	display: inline;
+	padding: 5px 15px;
+	line-height: 2.25;
+}
+
+.filter-item a:link,
+.filter-item a:hover,
+.filter-item a:visited,
+.filter-item a:active {
+	color: #666;
+}
+
+.filter-item.selected {
+	border-bottom: 2px solid #ff811b;
+}
+
+.filter-item.selected a:link,
+.filter-item.selected a:hover {
+	color: #ff811b;
+	text-decoration: none;
 }
