@@ -12,7 +12,7 @@ if ($terms && ! is_wp_error($terms)) :
 endif;
 ?>
 
-<div class="fl-post-grid-post bms-portfolio-grid-container element-item <?php echo $terms_slug_str; ?>" itemscope itemtype="<?php ZSUPortfolioGridModule::schema_itemtype(); ?>">
+<div class="fl-post-grid-post bms-portfolio-grid-container element-item <?php echo $terms_slug_str; ?>" itemscope itemtype="<?php BMSPortfolioGridModule::schema_itemtype(); ?>">
 
 	<?php //echo $terms_slug_str; ?>
 
