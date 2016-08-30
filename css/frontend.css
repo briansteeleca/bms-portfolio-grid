@@ -292,7 +292,17 @@ body .fl-post-feed-meta {
 .bms-portfolio-grid-front {
 	z-index: 2;
 	-webkit-transform: rotateY(0deg);
-		    transform: rotateY(0deg);	
+		    transform: rotateY(0deg);
+	text-align: center;
+	border-radius: 7px;
+	background-color: #fff;
+}
+
+.bms-portfolio-grid-front h3 {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	right: 0;
 }
 
 /* TODO: make this an option in settings */

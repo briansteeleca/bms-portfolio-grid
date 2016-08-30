@@ -20,11 +20,13 @@ endif;
 
 	<div class="flipper">
 
-		<?php if(has_post_thumbnail() && $settings->show_image) : ?>
 		<div class="fl-post-grid-image bms-portfolio-grid-front">
+		<?php if(has_post_thumbnail() && $settings->show_image) : ?>
 			<?php the_post_thumbnail($settings->image_size); ?>
-		</div>
+		<?php else : ?>
+			<h3><?php the_title(); ?></h3>
 		<?php endif; ?>
+		</div>
 
 		<div class="fl-post-grid-text bms-portfolio-grid-back">
 
