@@ -1,6 +1,20 @@
-<div class="fl-post-gallery-post" itemscope="itemscope" itemtype="<?php FLPostGridModule::schema_itemtype(); ?>">
+<?php
 
-	<?php FLPostGridModule::schema_meta(); ?>
+$post_id = get_the_ID();
+
+$terms = get_the_terms($post_id, 'portfolio_category' );
+if ($terms && ! is_wp_error($terms)) :
+	$term_slugs_arr = array();
+	foreach ($terms as $term) {
+	    $term_slugs_arr[] = $term->slug;
+	}
+	$terms_slug_str = join( " ", $term_slugs_arr);
+endif;
+?>
+
+<div class="fl-post-gallery-post <?php echo $terms_slug_str; ?>" itemscope="itemscope" itemtype="<?php BMSPortfolioGridModule::schema_itemtype(); ?>">
+
+	<?php BMSPortfolioGridModule::schema_meta(); ?>
 
 	<a class="fl-post-gallery-link" href="<?php the_permalink(); ?>" alt="<?php the_title_attribute(); ?>">
 	
