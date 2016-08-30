@@ -1,9 +1,10 @@
 <?php
 
 /**
- * @class FLPostGridModule
+ * @class BMSPortfolioGridModule
+ * Custom module based on BB post-grid module (Posts Module)
  */
-class FLPostGridModule extends FLBuilderModule {
+class BMSPortfolioGridModule extends FLBuilderModule {
 
 	/**
 	 * @method __construct
@@ -11,8 +12,8 @@ class FLPostGridModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          	=> __('Posts', 'fl-builder'),
-			'description'   	=> __('Display a grid of your WordPress posts.', 'fl-builder'),
+			'name'          	=> __('BMS Portfolio Grid', 'fl-builder'),
+			'description'   	=> __('Display a grid of your Portfolio posts.', 'fl-builder'),
 			'category'      	=> __('Advanced Modules', 'fl-builder'),
 			'editor_export' 	=> false,
 			'partial_refresh'	=> true
@@ -25,9 +26,12 @@ class FLPostGridModule extends FLBuilderModule {
 	public function enqueue_scripts()
 	{
 		if(FLBuilderModel::is_builder_active() || $this->settings->layout == 'grid') {
-			$this->add_js('jquery-masonry');
-		}
+			$this->add_js( 'imagesloaded', $this->url . 'js/imagesloaded.pkgd.min.js', array(), '', true );
+			$this->add_js( 'isotope', $this->url . 'js/isotope.pkgd.min.js', array(), '', true ); 
+		}		
 		if(FLBuilderModel::is_builder_active() || $this->settings->layout == 'gallery') {
+			$this->add_js( 'imagesloaded', $this->url . 'js/imagesloaded.pkgd.min.js', array(), '', true );
+			$this->add_js( 'isotope', $this->url . 'js/isotope.pkgd.min.js', array(), '', true );
 			$this->add_js('fl-gallery-grid');
 		}
 		if(FLBuilderModel::is_builder_active() || $this->settings->pagination == 'scroll') {
@@ -111,7 +115,7 @@ class FLPostGridModule extends FLBuilderModule {
 /**
  * Register the module and its form settings.
  */
-FLBuilder::register_module('FLPostGridModule', array(
+FLBuilder::register_module('BMSPortfolioGridModule', array(
 	'layout'        => array(
 		'title'         => __('Layout', 'fl-builder'),
 		'sections'      => array(
@@ -124,20 +128,22 @@ FLBuilder::register_module('FLPostGridModule', array(
 						'default'       => 'grid',
 						'options'       => array(
 							'grid'          => __('Grid', 'fl-builder'),
-							'gallery'       => __('Gallery', 'fl-builder'),
-							'feed'          => __('Feed', 'fl-builder'),
+							// Removed for now until other layouts are tested.
+							//'gallery'       => __('Gallery', 'fl-builder'),
+							//'feed'          => __('Feed', 'fl-builder'),
 						),
 						'toggle'        => array(
 							'grid'          => array(
 								'sections'      => array('grid', 'image', 'content'),
-								'fields'        => array('show_author', 'match_height')
+								'fields'        => array('show_filters', 'match_height')
 							),
 							'feed'          => array(
 								'sections'      => array('image', 'content'),
 								'fields'        => array('image_position', 'show_author', 'show_comments', 'content_type')
 							),
 							'gallery'		=> array(
-								'tabs'			=> array( 'style' )
+								'tabs'			=> array( 'style' ),
+								'fields'        => array('show_filters')
 							)
 						)
 					),
@@ -170,6 +176,15 @@ FLBuilder::register_module('FLPostGridModule', array(
 						'type' 				=> 'text',
 						'label'				=> __('No Results Message', 'fl-builder'),
 						'default'			=> __('No Posts Found.', 'fl-builder')
+					),
+					'show_filters'  => array(
+						'type'          => 'select',
+						'label'         => __('Show Filters', 'fl-builder'),
+						'default'       => '0',
+						'options'       => array(
+							'1'             => __('Yes', 'fl-builder'),
+							'0'             => __('No', 'fl-builder')
+						)
 					)
 				)
 			),
