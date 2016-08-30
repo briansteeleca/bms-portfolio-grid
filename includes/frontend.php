@@ -93,7 +93,15 @@ if($settings->pagination != 'none' && $query->have_posts()) :
 </div>
 <?php endif; ?>
 
-<div class="fl-post-grid-empty" style="display:none"><?php _e( 'No posts found. Please make your search less specific.', 'fl-builder' ); ?></div>
+<div class="fl-post-grid-empty" style="display:none">
+	<?php 
+	if (isset($settings->no_results_message)) :
+		echo $settings->no_results_message;
+	else :
+		_e( 'No posts found.', 'fl-builder' );
+	endif; 
+	?>
+</div>
 
 <?php
 
