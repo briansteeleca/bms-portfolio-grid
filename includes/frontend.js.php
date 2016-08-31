@@ -13,30 +13,29 @@
 			showFilters: <?php echo $settings->show_filters; ?>
 		});
 
-		var getCategoryFilter = null,
-			categoryFilter = '',
-			categoryFilterClass = '',
+		var	verticalFilter = '',
+			verticalFilterClass = '',
 			acceleratorFilter = '',
 			acceleratorFilterClass = '';
 
 
-		$('.cat-item').find('a').on('click', function(e){
+		$('.verticals-item').find('a').on('click', function(e){
 
 			e.preventDefault();
 
-			$('.cat-item').removeClass('selected');
+			$('.verticals-item').removeClass('selected');
 			$(this).parent().addClass('selected');
 
-			categoryFilter = $(this).attr('class');
-			if (categoryFilter == 'all') {
-				categoryFilterClass = '';
+			verticalFilter = $(this).attr('class');
+			if (verticalFilter == 'all') {
+				verticalFilterClass = '';
 			}
 			else {
-				categoryFilterClass = '.' + categoryFilter;
+				verticalFilterClass = '.' + verticalFilter;
 			}
 
 			var $grid = jQuery('.fl-post-grid, .fl-post-gallery');
-			$grid.isotope({ filter: categoryFilterClass + acceleratorFilterClass });
+			$grid.isotope({ filter: verticalFilterClass + acceleratorFilterClass });
 
 			// display message box if no filtered items are found
 			if ( $grid.data('isotope').filteredItems.length === 0 ) {
@@ -47,11 +46,11 @@
 			}
 		});
 
-		$('.accel-item').find('a').on('click', function(e){
+		$('.accelerators-item').find('a').on('click', function(e){
 
 			e.preventDefault();
 
-			$('.accel-item').removeClass('selected');
+			$('.accelerators-item').removeClass('selected');
 			$(this).parent().addClass('selected');
 
 			acceleratorFilter = $(this).attr('class');
@@ -63,7 +62,7 @@
 			}
 
 			var $grid = jQuery('.fl-post-grid, .fl-post-gallery');
-			$grid.isotope({ filter: categoryFilterClass + acceleratorFilterClass });
+			$grid.isotope({ filter: verticalFilterClass + acceleratorFilterClass });
 
 			// display message box if no filtered items are found
 			if ( $grid.data('isotope').filteredItems.length === 0 ) {
