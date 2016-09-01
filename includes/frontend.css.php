@@ -9,10 +9,13 @@
 	width: <?php echo $settings->post_width; ?>px;
 	height: <?php echo $settings->post_height; ?>px;
 }
+
+<?php # This can be removed if you don't want to use @2x sized images ?>
 .fl-node-<?php echo $id; ?> .fl-post-grid-image > img {
 	width: <?php echo $settings->post_width; ?>px;
 	height: <?php echo $settings->post_height; ?>px;
 }
+
 
 @media screen and (max-width: <?php echo $settings->post_width + $settings->post_spacing; ?>px) {
 	.fl-node-<?php echo $id; ?> .fl-post-grid,
