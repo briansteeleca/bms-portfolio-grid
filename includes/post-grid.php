@@ -1,5 +1,7 @@
 <?php
 
+global $post;
+
 $post_id = get_the_ID();
 
 $terms = get_the_terms($post_id, 'portfolio_category' );
@@ -12,7 +14,8 @@ if ($terms && ! is_wp_error($terms)) :
 endif;
 ?>
 
-<div class="fl-post-grid-post bms-portfolio-grid-container element-item <?php echo $terms_slug_str; ?>" itemscope itemtype="<?php BMSPortfolioGridModule::schema_itemtype(); ?>">
+<?php # http://www.tcbarrett.com/2011/09/wordpress-the_slug-get-post-slug-function/ ?>
+<div class="fl-post-grid-post bms-portfolio-grid-container element-item <?php echo $terms_slug_str; ?> <?php echo $post->post_name; ?>" data-post-title="<?php the_title(); ?>" itemscope itemtype="<?php BMSPortfolioGridModule::schema_itemtype(); ?>">
 
 	<?php //echo $terms_slug_str; ?>
 
