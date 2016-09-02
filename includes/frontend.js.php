@@ -51,6 +51,14 @@
 			var $grid = jQuery('.fl-post-grid, .fl-post-gallery');
 			$grid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
 
+			// display message box if no filtered items are found
+			if ( $grid.data('isotope').filteredItems.length === 0 ) {
+			  $('.fl-post-grid-empty').show();
+			}
+			else {
+			  $('.fl-post-grid-empty').hide();
+			}
+
 		});
 
 		// Filter List 2
@@ -82,6 +90,14 @@
 
 			var $grid = jQuery('.fl-post-grid, .fl-post-gallery');
 			$grid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
+
+			// display message box if no filtered items are found
+			if ( $grid.data('isotope').filteredItems.length === 0 ) {
+			  $('.fl-post-grid-empty').show();
+			}
+			else {
+			  $('.fl-post-grid-empty').hide();
+			}
 
 		});
 
