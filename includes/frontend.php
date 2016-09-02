@@ -10,7 +10,7 @@ if($settings->show_filters == '1' && $query->have_posts()) :
 	// Display taxonomy terms for filtering portfolio grid
 	$taxonomy = 'portfolio_category';
 	// Get parent (top-level) terms for taxonomy
-	$terms = get_terms( $taxonomy, array( 'parent' => 0 ) );
+	$parent_terms = get_terms( $taxonomy, array( 'parent' => 0 ) );
 	?>
 
 	<div class="filter-wrapper">
@@ -22,25 +22,25 @@ if($settings->show_filters == '1' && $query->have_posts()) :
 		parent (top-level) categories. 
 	*/
 
-	if ( $terms && !is_wp_error( $terms ) ) :
+	if ( $parent_terms && !is_wp_error( $parent_terms ) ) :
 
 		// Create the filter lists from parent (top-level) categories,
 		// but only allow 2 filter lists (uses the first two).
 		$counter = 0;
-		foreach ( $terms as $term ) {
+		foreach ( $parent_terms as $parent_term ) {
 
 			if( $counter == 2) {
 				break;
 			}
 			$counter++;
 
-			$term_id = $term->term_id; 
-			$child_terms = get_terms( array( 'taxonomy' => 'portfolio_category', 'parent' => $term_id ) );
+			$parent_term_id = $parent_term->term_id;
+			$child_terms = get_terms( array( 'taxonomy' => 'portfolio_category', 'parent' => $parent_term_id ) );
 			?>
 			<ul class="filter-list filter-list-<?php echo $counter; ?>">
-				<li class="<?php echo $term->slug; ?>-item filter-item selected"><a class="all" href="#"><?php _e( 'All ', 'fl-builder' ); echo $term->name; ?></a></li>
+				<li class="<?php echo $parent_term->slug; ?>-item filter-item selected"><a class="all" href="#"><?php _e( 'All ', 'fl-builder' ); echo $parent_term->name; ?></a></li>
 				<?php foreach ( $child_terms as $child_term ) { ?>
-					<li class="<?php echo $term->slug; ?>-item filter-item"><a class="<?php echo $child_term->slug ?>" href="<?php echo get_term_link($child_term->slug, $taxonomy); ?>"><?php echo $child_term->name; ?></a></li>
+					<li class="<?php echo $parent_term->slug; ?>-item filter-item"><a class="<?php echo $child_term->slug ?>" href="<?php echo get_term_link($child_term->slug, $taxonomy); ?>"><?php echo $child_term->name; ?></a></li>
 				<?php } ?>
 			</ul>
 		<?php
