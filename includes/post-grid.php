@@ -11,6 +11,8 @@ if ($terms && ! is_wp_error($terms)) :
 	    $term_slugs_arr[] = $term->slug;
 	}
 	$terms_slug_str = join( " ", $term_slugs_arr);
+else :
+	$terms_slug_str = '';
 endif;
 ?>
 
