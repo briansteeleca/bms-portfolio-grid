@@ -1,6 +1,6 @@
 (function($) {
 
-	FLBuilderPostGrid = function(settings)
+	FLBuilderBMSPortfolioGrid = function(settings)
 	{
 		this.settings       = settings;
 		this.nodeClass      = '.fl-node-' + settings.id;
@@ -14,7 +14,7 @@
 		}
 	};
 
-	FLBuilderPostGrid.prototype = {
+	FLBuilderBMSPortfolioGrid.prototype = {
 	
 		settings        : {},
 		nodeClass       : '',

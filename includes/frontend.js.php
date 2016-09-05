@@ -2,7 +2,7 @@
 
 	$(function() {
 	
-		new FLBuilderPostGrid({
+		new FLBuilderBMSPortfolioGrid({
 			id: '<?php echo $id ?>',
 			layout: '<?php echo $settings->layout; ?>',
 			pagination: '<?php echo $settings->pagination; ?>',
