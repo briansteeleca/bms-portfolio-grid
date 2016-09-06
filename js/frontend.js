@@ -136,7 +136,7 @@
 			if(this.settings.layout == 'grid') {
 				wrap.imagesLoaded( $.proxy( function() {
 					this._gridLayoutMatchHeight();
-					wrap.masonry('appended', elements);
+					wrap.isotope('appended', elements);
 					elements.css('visibility', 'visible');
 				}, this ) );
 			}
