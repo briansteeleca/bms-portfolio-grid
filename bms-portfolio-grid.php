@@ -162,7 +162,7 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 						'default'       => 'none',
 						'options'       => array(
 							'numbers'       => __('Numbers', 'fl-builder'),
-							//'scroll'        => __('Scroll', 'fl-builder'),
+							'scroll'        => __('Scroll', 'fl-builder'),
 							'none'          => _x( 'None', 'Pagination style.', 'fl-builder' ),
 						)
 					),
