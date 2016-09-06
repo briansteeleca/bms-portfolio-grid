@@ -3,22 +3,22 @@
 	margin: 0 auto;
 	position: relative;
 }
-.fl-post-grid-post {
+.fl-post-grid-post.bms-portfolio-grid-container {
 	background: transparent;
 	border: none !important;
 	visibility: hidden;
 }
 .flipper,
-.fl-post-grid-image {
+.fl-post-grid-image.bms-portfolio-grid-front {
 	width: 100%;
 	height: 100%;
 }
 
-.fl-post-grid-image img {
+.fl-post-grid-image.bms-portfolio-grid-front img {
 	display: block;
 	border-radius: 7px;
 }
-.fl-post-grid-text {
+.fl-post-grid-text.bms-portfolio-grid-back {
 	padding: 20px;
 	border-radius: 7px;
 }

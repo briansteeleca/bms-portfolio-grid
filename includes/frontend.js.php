@@ -21,6 +21,10 @@
 		var portfolioItemFilterClass1 = '',
 			portfolioItemFilterClass2 = '';
 
+		var $portfolioGrid = jQuery('.bms-portfolio-grid.fl-post-grid, .bms-portfolio-grid.fl-post-gallery');
+		$portfolioGrid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
+
+
 		// Filter List 1
 		$('.filter-list-1 .filter-item').find('a').on('click', function(e){
 
@@ -48,17 +52,19 @@
 				portfolioItemFilterClass1 = '.' + portfolioItemFilter1;
 			}
 
-			var $grid = jQuery('.fl-post-grid, .fl-post-gallery');
-			$grid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
+			$portfolioGrid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
 
-			// display message box if no filtered items are found
-			if ( $grid.data('isotope').filteredItems.length === 0 ) {
-			  $('.fl-post-grid-empty').show();
-			}
-			else {
-			  $('.fl-post-grid-empty').hide();
-			}
+			$portfolioGrid.on( 'layoutComplete', function( event, laidOutItems ) {
+			    //console.log( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
 
+		    	// display message box if no filtered items are found
+				if ( $portfolioGrid.data('isotope').filteredItems.length === 0 ) {
+					$('.fl-post-grid-empty').show();
+				}
+				else {
+					$('.fl-post-grid-empty').hide();
+				}
+			});
 		});
 
 		// Filter List 2
@@ -88,17 +94,19 @@
 				portfolioItemFilterClass2 = '.' + portfolioItemFilter2;
 			}
 
-			var $grid = jQuery('.fl-post-grid, .fl-post-gallery');
-			$grid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
+			$portfolioGrid.isotope({ filter: portfolioItemFilterClass1 + portfolioItemFilterClass2 });
 
-			// display message box if no filtered items are found
-			if ( $grid.data('isotope').filteredItems.length === 0 ) {
-			  $('.fl-post-grid-empty').show();
-			}
-			else {
-			  $('.fl-post-grid-empty').hide();
-			}
+			$portfolioGrid.on( 'layoutComplete', function( event, laidOutItems ) {
+			    //console.log( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
 
+		    	// display message box if no filtered items are found
+				if ( $portfolioGrid.data('isotope').filteredItems.length === 0 ) {
+					$('.fl-post-grid-empty').show();
+				}
+				else {
+					$('.fl-post-grid-empty').hide();
+				}
+			});
 		});
 
 
@@ -106,7 +114,8 @@
 
 	<?php if($settings->layout == 'grid') : ?>
 	$(window).on('load', function() {
-		$('.fl-node-<?php echo $id; ?> .fl-post-<?php echo $settings->layout; ?>').isotope('reloadItems');
+		$('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>').isotope('reloadItems');
+		console.log($('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>'));
 	});
 	<?php endif; ?>
 	

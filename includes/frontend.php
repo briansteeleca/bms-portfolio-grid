@@ -59,7 +59,7 @@ if($settings->show_filters == '1' && $query->have_posts()) :
 if($query->have_posts()) :
 
 ?>
-<div class="fl-post-<?php echo $settings->layout; ?>" itemscope="itemscope" itemtype="http://schema.org/Blog">
+<div class="fl-post-<?php echo $settings->layout; ?> bms-portfolio-<?php echo $settings->layout; ?>" itemscope="itemscope" itemtype="http://schema.org/Blog">
 	<?php
 
 	while($query->have_posts()) {
