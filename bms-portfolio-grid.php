@@ -122,31 +122,31 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 			'general'       => array(
 				'title'         => '',
 				'fields'        => array(
-					'layout'        => array(
-						'type'          => 'select',
-						'label'         => __('Layout Style', 'fl-builder'),
-						'default'       => 'grid',
-						'options'       => array(
-							'grid'          => __('Grid', 'fl-builder'),
-							// Removed for now until other layouts are tested.
-							//'gallery'       => __('Gallery', 'fl-builder'),
-							//'feed'          => __('Feed', 'fl-builder'),
-						),
-						'toggle'        => array(
-							'grid'          => array(
-								'sections'      => array('grid', 'image', 'content'),
-								'fields'        => array('show_filters', 'match_height')
-							),
-							'feed'          => array(
-								'sections'      => array('image', 'content'),
-								'fields'        => array('image_position', 'show_author', 'show_comments', 'content_type')
-							),
-							'gallery'		=> array(
-								'tabs'			=> array( 'style' ),
-								'fields'        => array('show_filters')
-							)
-						)
-					),
+					// Removed for now until other layout styles (gallery, feed) are tested.
+					// 'layout'        => array(
+					// 	'type'          => 'select',
+					// 	'label'         => __('Layout Style', 'fl-builder'),
+					// 	'default'       => 'grid',
+					// 	'options'       => array(
+					// 		'grid'          => __('Grid', 'fl-builder'),
+					// 		//'gallery'       => __('Gallery', 'fl-builder'),
+					// 		//'feed'          => __('Feed', 'fl-builder'),
+					// 	),
+					// 	'toggle'        => array(
+					// 		'grid'          => array(
+					// 			'sections'      => array('grid', 'image', 'content'),
+					// 			'fields'        => array('show_filters', 'match_height')
+					// 		),
+					// 		'feed'          => array(
+					// 			'sections'      => array('image', 'content'),
+					// 			'fields'        => array('image_position', 'show_author', 'show_comments', 'content_type')
+					// 		),
+					// 		'gallery'		=> array(
+					// 			'tabs'			=> array( 'style' ),
+					// 			'fields'        => array('show_filters')
+					// 		)
+					// 	)
+					// ),
 					'match_height'  => array(
 						'type'          => 'select',
 						'label'         => __('Equal Heights', 'fl-builder'),
@@ -343,99 +343,100 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 			)
 		)
 	),
-	'style'         => array( // Tab
-		'title'         => __('Style', 'fl-builder'), // Tab title
-		'sections'      => array( // Tab Sections
-			'gallery_general'          => array(
-				'title'         => '',
-				'fields'        => array(
-					'hover_transition'   => array(
-						'type'          => 'select',
-						'label'         => __('Hover Transition', 'fl-builder'),
-						'default'       => 'fade',
-						'options'       => array(
-							'fade'			=> __('Fade', 'fl-builder'),
-							'slide-up'     	=> __('Slide Up', 'fl-builder'),
-							'slide-down'   	=> __('Slide Down', 'fl-builder'),
-							'scale-up'   	=> __('Scale Up', 'fl-builder'),
-							'scale-down'   	=> __('Scale Down', 'fl-builder'),
-						)
-					),
-				)
-			),
-			'icons'          => array(
-				'title'         => __('Icons', 'fl-builder'),
-				'fields'        => array(
-					'has_icon'   => array(
-						'type'          => 'select',
-						'label'         => __('Use Icon for Posts', 'fl-builder'),
-						'default'       => 'no',
-						'options'       => array(
-							'yes'			=> __('Yes', 'fl-builder'),
-							'no' 	      	=> __('No', 'fl-builder'),
-						),
-						'toggle'		=> array(
-							'yes'			=> array(
-								'fields'		=> array( 'icon', 'icon_position', 'icon_color', 'icon_size' )
-							)
-						),
-					),
-					'icon'  => array(
-						'type'          => 'icon',
-						'label'         => __('Post Icon', 'fl-builder'),
-					),
-					'icon_position'   => array(
-						'type'          => 'select',
-						'label'         => __('Post Icon Position', 'fl-builder'),
-						'default'       => 'above',
-						'options'       => array(
-							'above'			=> __('Above Text', 'fl-builder'),
-							'below'       	=> __('Below Text', 'fl-builder'),
-						)
-					),
-					'icon_size'  => array(
-						'type'          => 'text',
-						'label'         => __('Post Icon Size', 'fl-builder'),
-						'default'       => '24',
-						'maxlength'     => '3',
-						'size'          => '4',
-						'description'   => 'px'
-					),
-				)
-			),
-			'text_style'    => array(
-				'title'         => __('Colors', 'fl-builder'),
-				'fields'        => array(
-					'text_color'    => array(
-						'type'          => 'color',
-						'label'         => __('Text Color', 'fl-builder'),
-						'default'       => 'ffffff',
-						'show_reset'    => true
-					),
-					'icon_color' => array(
-						'type'          => 'color',
-						'label'         => __('Post Icon Color', 'fl-builder'),
-						'show_reset'    => true
-					),
-					'text_bg_color' => array(
-						'type'          => 'color',
-						'label'         => __('Text Background Color', 'fl-builder'),
-						'default'       => '333333',
-						'help'          => __('The color applies to the overlay behind text over the background selections.', 'fl-builder'),
-						'show_reset'    => true
-					),
-					'text_bg_opacity' => array(
-						'type'          => 'text',
-						'label'         => __('Text Background Opacity', 'fl-builder'),
-						'default'       => '50',
-						'maxlength'     => '3',
-						'size'          => '4',
-						'description'   => '%'
-					),
-				)
-			),
-		)
-	),
+	// // Removed Style tab for now until other layout styles (gallery, feed) are tested.
+	// 'style'         => array( // Tab
+	// 	'title'         => __('Style', 'fl-builder'), // Tab title
+	// 	'sections'      => array( // Tab Sections
+	// 		'gallery_general'          => array(
+	// 			'title'         => '',
+	// 			'fields'        => array(
+	// 				'hover_transition'   => array(
+	// 					'type'          => 'select',
+	// 					'label'         => __('Hover Transition', 'fl-builder'),
+	// 					'default'       => 'fade',
+	// 					'options'       => array(
+	// 						'fade'			=> __('Fade', 'fl-builder'),
+	// 						'slide-up'     	=> __('Slide Up', 'fl-builder'),
+	// 						'slide-down'   	=> __('Slide Down', 'fl-builder'),
+	// 						'scale-up'   	=> __('Scale Up', 'fl-builder'),
+	// 						'scale-down'   	=> __('Scale Down', 'fl-builder'),
+	// 					)
+	// 				),
+	// 			)
+	// 		),
+	// 		'icons'          => array(
+	// 			'title'         => __('Icons', 'fl-builder'),
+	// 			'fields'        => array(
+	// 				'has_icon'   => array(
+	// 					'type'          => 'select',
+	// 					'label'         => __('Use Icon for Posts', 'fl-builder'),
+	// 					'default'       => 'no',
+	// 					'options'       => array(
+	// 						'yes'			=> __('Yes', 'fl-builder'),
+	// 						'no' 	      	=> __('No', 'fl-builder'),
+	// 					),
+	// 					'toggle'		=> array(
+	// 						'yes'			=> array(
+	// 							'fields'		=> array( 'icon', 'icon_position', 'icon_color', 'icon_size' )
+	// 						)
+	// 					),
+	// 				),
+	// 				'icon'  => array(
+	// 					'type'          => 'icon',
+	// 					'label'         => __('Post Icon', 'fl-builder'),
+	// 				),
+	// 				'icon_position'   => array(
+	// 					'type'          => 'select',
+	// 					'label'         => __('Post Icon Position', 'fl-builder'),
+	// 					'default'       => 'above',
+	// 					'options'       => array(
+	// 						'above'			=> __('Above Text', 'fl-builder'),
+	// 						'below'       	=> __('Below Text', 'fl-builder'),
+	// 					)
+	// 				),
+	// 				'icon_size'  => array(
+	// 					'type'          => 'text',
+	// 					'label'         => __('Post Icon Size', 'fl-builder'),
+	// 					'default'       => '24',
+	// 					'maxlength'     => '3',
+	// 					'size'          => '4',
+	// 					'description'   => 'px'
+	// 				),
+	// 			)
+	// 		),
+	// 		'text_style'    => array(
+	// 			'title'         => __('Colors', 'fl-builder'),
+	// 			'fields'        => array(
+	// 				'text_color'    => array(
+	// 					'type'          => 'color',
+	// 					'label'         => __('Text Color', 'fl-builder'),
+	// 					'default'       => 'ffffff',
+	// 					'show_reset'    => true
+	// 				),
+	// 				'icon_color' => array(
+	// 					'type'          => 'color',
+	// 					'label'         => __('Post Icon Color', 'fl-builder'),
+	// 					'show_reset'    => true
+	// 				),
+	// 				'text_bg_color' => array(
+	// 					'type'          => 'color',
+	// 					'label'         => __('Text Background Color', 'fl-builder'),
+	// 					'default'       => '333333',
+	// 					'help'          => __('The color applies to the overlay behind text over the background selections.', 'fl-builder'),
+	// 					'show_reset'    => true
+	// 				),
+	// 				'text_bg_opacity' => array(
+	// 					'type'          => 'text',
+	// 					'label'         => __('Text Background Opacity', 'fl-builder'),
+	// 					'default'       => '50',
+	// 					'maxlength'     => '3',
+	// 					'size'          => '4',
+	// 					'description'   => '%'
+	// 				),
+	// 			)
+	// 		),
+	// 	)
+	// ),
 	'content'   => array(
 		'title'         => __('Content', 'fl-builder'),
 		'file'          => FL_BUILDER_DIR . 'includes/loop-settings.php',
