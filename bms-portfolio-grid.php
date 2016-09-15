@@ -234,76 +234,77 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 							)
 						)
 					),
-					'image_position' => array(
-						'type'          => 'select',
-						'label'         => __('Position', 'fl-builder'),
-						'default'       => 'above',
-						'options'       => array(
-							'above-title'   => __('Above Title', 'fl-builder'),
-							'above'         => __('Above Text', 'fl-builder'),
-							'beside'        => __('Beside Text', 'fl-builder')
-						)
-					),
+					// 'image_position' => array(
+					// 	'type'          => 'select',
+					// 	'label'         => __('Position', 'fl-builder'),
+					// 	'default'       => 'above',
+					// 	'options'       => array(
+					// 		'above-title'   => __('Above Title', 'fl-builder'),
+					// 		'above'         => __('Above Text', 'fl-builder'),
+					// 		'beside'        => __('Beside Text', 'fl-builder')
+					// 	)
+					// ),
 					'image_size'    => array(
 						'type'          => 'photo-sizes',
 						'label'         => __('Size', 'fl-builder'),
-						'default'       => 'medium'
+						'default'       => 'large'
 					),
 				)
 			),
-			'info'          => array(
-				'title'         => __( 'Post Info', 'fl-builder' ),
-				'fields'        => array(
-					'show_author'   => array(
-						'type'          => 'select',
-						'label'         => __('Author', 'fl-builder'),
-						'default'       => '1',
-						'options'       => array(
-							'1'             => __('Show', 'fl-builder'),
-							'0'             => __('Hide', 'fl-builder')
-						)
-					),
-					'show_date'     => array(
-						'type'          => 'select',
-						'label'         => __('Date', 'fl-builder'),
-						'default'       => '1',
-						'options'       => array(
-							'1'             => __('Show', 'fl-builder'),
-							'0'             => __('Hide', 'fl-builder')
-						),
-						'toggle'        => array(
-							'1'             => array(
-								'fields'        => array('date_format')
-							)
-						)
-					),
-					'date_format'   => array(
-						'type'          => 'select',
-						'label'         => __('Date Format', 'fl-builder'),
-						'default'       => 'default',
-						'options'       => array(
-							'default'		=> __('Default', 'fl-builder'),
-							'M j, Y'        => date('M j, Y'),
-							'F j, Y'        => date('F j, Y'),
-							'm/d/Y'         => date('m/d/Y'),
-							'm-d-Y'         => date('m-d-Y'),
-							'd M Y'         => date('d M Y'),
-							'd F Y'         => date('d F Y'),
-							'Y-m-d'         => date('Y-m-d'),
-							'Y/m/d'         => date('Y/m/d'),
-						)
-					),
-					'show_comments' => array(
-						'type'          => 'select',
-						'label'         => __('Comments', 'fl-builder'),
-						'default'       => '1',
-						'options'       => array(
-							'1'             => __('Show', 'fl-builder'),
-							'0'             => __('Hide', 'fl-builder')
-						)
-					),
-				)
-			),
+			// Removed for now until other layout styles (gallery, feed) are tested.
+			// 'info'          => array(
+			// 	'title'         => __( 'Post Info', 'fl-builder' ),
+			// 	'fields'        => array(
+			// 		'show_author'   => array(
+			// 			'type'          => 'select',
+			// 			'label'         => __('Author', 'fl-builder'),
+			// 			'default'       => '1',
+			// 			'options'       => array(
+			// 				'1'             => __('Show', 'fl-builder'),
+			// 				'0'             => __('Hide', 'fl-builder')
+			// 			)
+			// 		),
+			// 		'show_date'     => array(
+			// 			'type'          => 'select',
+			// 			'label'         => __('Date', 'fl-builder'),
+			// 			'default'       => '1',
+			// 			'options'       => array(
+			// 				'1'             => __('Show', 'fl-builder'),
+			// 				'0'             => __('Hide', 'fl-builder')
+			// 			),
+			// 			'toggle'        => array(
+			// 				'1'             => array(
+			// 					'fields'        => array('date_format')
+			// 				)
+			// 			)
+			// 		),
+			// 		'date_format'   => array(
+			// 			'type'          => 'select',
+			// 			'label'         => __('Date Format', 'fl-builder'),
+			// 			'default'       => 'default',
+			// 			'options'       => array(
+			// 				'default'		=> __('Default', 'fl-builder'),
+			// 				'M j, Y'        => date('M j, Y'),
+			// 				'F j, Y'        => date('F j, Y'),
+			// 				'm/d/Y'         => date('m/d/Y'),
+			// 				'm-d-Y'         => date('m-d-Y'),
+			// 				'd M Y'         => date('d M Y'),
+			// 				'd F Y'         => date('d F Y'),
+			// 				'Y-m-d'         => date('Y-m-d'),
+			// 				'Y/m/d'         => date('Y/m/d'),
+			// 			)
+			// 		),
+			// 		'show_comments' => array(
+			// 			'type'          => 'select',
+			// 			'label'         => __('Comments', 'fl-builder'),
+			// 			'default'       => '1',
+			// 			'options'       => array(
+			// 				'1'             => __('Show', 'fl-builder'),
+			// 				'0'             => __('Hide', 'fl-builder')
+			// 			)
+			// 		),
+			// 	)
+			// ),
 			'content'       => array(
 				'title'         => __( 'Content', 'fl-builder' ),
 				'fields'        => array(
