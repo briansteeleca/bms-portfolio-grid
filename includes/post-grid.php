@@ -40,27 +40,34 @@ endif;
 			</h2>
 
 			<?php if($settings->show_content || $settings->show_more_link) : ?>
-			<div class="fl-post-grid-content">
-				<?php if($settings->show_content) : ?>
-				<?php the_excerpt(21); ?>
-				<?php endif; ?>
-			</div>
 
-            <div class="bms-portfolio-grid-website" >
+				<div class="fl-post-grid-content">
+					<?php if($settings->show_content) : ?>
+					<?php the_excerpt(21); ?>
+					<?php endif; ?>
+				</div>
+
+	            
                 <?php if($settings->show_more_link) : ?>
-                <a class="fl-post-grid-more" href="<?php the_field( 'website_url' ); ?>" title="<?php the_title_attribute(); ?>"><?php echo $settings->more_link_text; ?></a>
+                	<?php if( !empty( get_field( 'website_url' ) ) ) : ?>
+	                	<div class="bms-portfolio-grid-website" >
+	                		<a class="fl-post-grid-more" href="<?php the_field( 'website_url' ); ?>" title="<?php the_title_attribute(); ?>"><?php echo $settings->more_link_text; ?></a>
+	                	</div>
+                	 <?php endif; ?>
                 <?php endif; ?>
-            </div>
 
-            <div class="bms-portfolio-grid-social">
-                <a href="<?php the_field( 'twitter_url' ); ?>" target="_self">
-                    <span class="fl-icon-wrap">
-                        <span class="fl-icon">
-                            <i class="fa fa-twitter"></i> 
-                        </span>
-                    </span>
-                </a>  
-            </div>
+				<?php if( !empty( get_field( 'twitter_url' ) ) ) : ?>
+		            <div class="bms-portfolio-grid-social">
+		                <a href="<?php the_field( 'twitter_url' ); ?>" target="_self">
+		                    <span class="fl-icon-wrap">
+		                        <span class="fl-icon">
+		                            <i class="fa fa-twitter"></i> 
+		                        </span>
+		                    </span>
+		                </a>  
+		            </div>
+	            <?php endif; ?>
+
 			<?php endif; ?>
 
 		</div><!-- bms-portfolio-grid-back -->
