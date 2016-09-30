@@ -114,8 +114,13 @@
 
 	<?php if($settings->layout == 'grid') : ?>
 	$(window).on('load', function() {
-		$('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>').isotope('reloadItems');
-		// console.log($('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>'));
+
+		var $portfolioGridContainer = $('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>');
+		if ( $portfolioGridContainer.data('isotope') ) { // Make sure isotope is initialized before calling reloadImages.
+		   $portfolioGridContainer.isotope('reloadItems');
+		   //console.log('reloadItems');
+		}
+		
 	});
 	<?php endif; ?>
 	
