@@ -115,7 +115,7 @@
 	<?php if($settings->layout == 'grid') : ?>
 	$(window).on('load', function() {
 		$('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>').isotope('reloadItems');
-		console.log($('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>'));
+		// console.log($('.fl-node-<?php echo $id; ?> .bms-portfolio-grid.fl-post-<?php echo $settings->layout; ?>'));
 	});
 	<?php endif; ?>
 	
