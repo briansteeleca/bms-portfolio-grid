@@ -260,11 +260,13 @@ body .fl-post-feed-meta {
 }
 
 /*  flip the pane when hovered */
-.bms-portfolio-grid-container:hover .bms-portfolio-grid-back {
+.bms-portfolio-grid-container:hover .bms-portfolio-grid-back,
+.bms-portfolio-grid-container:focus .bms-portfolio-grid-back {
 	-webkit-transform: rotateY(0deg);
 		    transform: rotateY(0deg);
 }
-.bms-portfolio-grid-container:hover .bms-portfolio-grid-front {
+.bms-portfolio-grid-container:hover .bms-portfolio-grid-front,
+.bms-portfolio-grid-container:focus .bms-portfolio-grid-front {
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
 }

@@ -29,6 +29,8 @@ endif;
 		<?php if(has_post_thumbnail() && $settings->show_image) : ?>
 			<?php the_post_thumbnail($settings->image_size); ?>
 		<?php else : ?>
+			<?php # Insert transparent image so non-logo cards will flip on iOS ?>
+			<img src="<?php echo plugin_dir_url(dirname(__FILE__)) . 'img/xpar.png'; ?>" alt="" />
 			<h3><?php the_title(); ?></h3>
 		<?php endif; ?>
 		</div>
