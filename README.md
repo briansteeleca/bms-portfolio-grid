@@ -2,7 +2,7 @@
 
 ## What is this?
 
-This is a custom Beaver Builder module (based on the native Beaver Builder module) that displays posts as a filterable, flip-card grid.
+This is a custom Beaver Builder module (based on the native Beaver Builder Posts module) that displays posts as a filterable, flip-card grid.
 
 *This is NOT a product – it was created to meet my needs of a project. If it doesn't do what you require, you're welcome to fork it, grab the code and modify it to your liking, or even download and delete it just for something to do.*
 
