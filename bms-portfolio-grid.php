@@ -123,30 +123,30 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 				'title'         => '',
 				'fields'        => array(
 					// Removed for now until other layout styles (gallery, feed) are tested.
-					// 'layout'        => array(
-					// 	'type'          => 'select',
-					// 	'label'         => __('Layout Style', 'fl-builder'),
-					// 	'default'       => 'grid',
-					// 	'options'       => array(
-					// 		'grid'          => __('Grid', 'fl-builder'),
-					// 		//'gallery'       => __('Gallery', 'fl-builder'),
-					// 		//'feed'          => __('Feed', 'fl-builder'),
-					// 	),
-					// 	'toggle'        => array(
-					// 		'grid'          => array(
-					// 			'sections'      => array('grid', 'image', 'content'),
-					// 			'fields'        => array('show_filters', 'match_height')
-					// 		),
-					// 		'feed'          => array(
-					// 			'sections'      => array('image', 'content'),
-					// 			'fields'        => array('image_position', 'show_author', 'show_comments', 'content_type')
-					// 		),
-					// 		'gallery'		=> array(
-					// 			'tabs'			=> array( 'style' ),
-					// 			'fields'        => array('show_filters')
-					// 		)
-					// 	)
-					// ),
+					'layout'        => array(
+						'type'          => 'select',
+						'label'         => __('Layout Style', 'fl-builder'),
+						'default'       => 'grid',
+						'options'       => array(
+							'grid'          => __('Grid', 'fl-builder'),
+							//'gallery'       => __('Gallery', 'fl-builder'),
+							//'feed'          => __('Feed', 'fl-builder'),
+						),
+						'toggle'        => array(
+							'grid'          => array(
+								'sections'      => array('grid', 'image', 'content'),
+								'fields'        => array('show_filters', 'match_height')
+							),
+							'feed'          => array(
+								'sections'      => array('image', 'content'),
+								'fields'        => array('image_position', 'show_author', 'show_comments', 'content_type')
+							),
+							'gallery'		=> array(
+								'tabs'			=> array( 'style' ),
+								'fields'        => array('show_filters')
+							)
+						)
+					),
 					'match_height'  => array(
 						'type'          => 'select',
 						'label'         => __('Equal Heights', 'fl-builder'),
