@@ -4,11 +4,11 @@
 
 This is a custom Beaver Builder module (based on the native Beaver Builder Posts module) that displays posts as a filterable, flip-card grid.
 
-*This is NOT a product – it was created to meet my needs of a project. If it doesn't do what you require, you're welcome to fork it, grab the code and modify it to your liking, or even download and delete it just for something to do.*
+*This is NOT a product – I created it to meet the needs of a project. If it doesn't do what you require, you're welcome to fork it, grab the code and modify it to your liking, or even download and delete it just for something to do.*
 
 ## Requirements
  - Beaver Builder plugin
- - Portfolio custom post type (You can use the Portfolio Post Type plugin)
+ - Portfolio custom post type (You can use the Portfolio Post Type plugin.)
 
 ## Installation
 - Follow steps 1 & 2 here: https://www.wpbeaverbuilder.com/custom-module-documentation/
