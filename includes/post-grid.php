@@ -49,26 +49,30 @@ endif;
 					<?php endif; ?>
 				</div>
 
-	            
-                <?php if($settings->show_more_link) : ?>
-                	<?php if( !empty( get_field( 'website_url' ) ) ) : ?>
-	                	<div class="bms-portfolio-grid-website" >
-	                		<a class="fl-post-grid-more" href="<?php the_field( 'website_url' ); ?>" target="_blank" title="<?php the_title_attribute(); ?>"><?php echo $settings->more_link_text; ?></a>
-	                	</div>
-                	 <?php endif; ?>
-                <?php endif; ?>
+				<?php // Check that Advanced Custom Fields plugin is active ?>
+		        <?php if(class_exists('acf')) : ?>
 
-				<?php if( !empty( get_field( 'twitter_url' ) ) ) : ?>
-		            <div class="bms-portfolio-grid-social">
-		                <a href="<?php the_field( 'twitter_url' ); ?>" target="_blank">
-		                    <span class="fl-icon-wrap">
-		                        <span class="fl-icon">
-		                            <i class="fa fa-twitter"></i> 
-		                        </span>
-		                    </span>
-		                </a>  
-		            </div>
-	            <?php endif; ?>
+	                <?php if($settings->show_more_link) : ?>
+	                	<?php if( !empty( get_field( 'website_url' ) ) ) : ?>
+		                	<div class="bms-portfolio-grid-website" >
+		                		<a class="fl-post-grid-more" href="<?php the_field( 'website_url' ); ?>" target="_blank" title="<?php the_title_attribute(); ?>"><?php echo $settings->more_link_text; ?></a>
+		                	</div>
+	                	 <?php endif; ?>
+	                <?php endif; ?>
+
+					<?php if( !empty( get_field( 'twitter_url' ) ) ) : ?>
+			            <div class="bms-portfolio-grid-social">
+			                <a href="<?php the_field( 'twitter_url' ); ?>" target="_blank">
+			                    <span class="fl-icon-wrap">
+			                        <span class="fl-icon">
+			                            <i class="fa fa-twitter"></i> 
+			                        </span>
+			                    </span>
+			                </a>  
+			            </div>
+		            <?php endif; ?>
+
+		        <?php endif; ?>
 
 			<?php endif; ?>
 
