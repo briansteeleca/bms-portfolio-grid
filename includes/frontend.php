@@ -10,7 +10,7 @@ if($settings->show_filters == '1' && $query->have_posts()) :
 	// Display taxonomy terms for filtering portfolio grid
 	$taxonomy = 'portfolio_category';
 	// Get parent (top-level) terms for taxonomy
-	$parent_terms = get_terms( $taxonomy, array( 'parent' => 0 ) );
+	$parent_terms = get_terms( $taxonomy, array( 'parent' => 0, 'orderby'  => 'slug' ) );
 	?>
 
 	<div class="filter-wrapper">
