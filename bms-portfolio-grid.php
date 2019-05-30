@@ -135,7 +135,7 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 						'toggle'        => array(
 							'grid'          => array(
 								'sections'      => array('grid', 'image', 'content'),
-								'fields'        => array('show_filters', 'match_height')
+								'fields'        => array('show_filters', 'show_category_for_all', 'match_height')
 							),
 							'feed'          => array(
 								'sections'      => array('image', 'content'),
@@ -143,7 +143,7 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 							),
 							'gallery'		=> array(
 								'tabs'			=> array( 'style' ),
-								'fields'        => array('show_filters')
+								'fields'        => array('show_filters', 'show_category_for_all')
 							)
 						)
 					),
@@ -180,6 +180,15 @@ FLBuilder::register_module('BMSPortfolioGridModule', array(
 					'show_filters'  => array(
 						'type'          => 'select',
 						'label'         => __('Show Filters', 'fl-builder'),
+						'default'       => '0',
+						'options'       => array(
+							'1'             => __('Yes', 'fl-builder'),
+							'0'             => __('No', 'fl-builder')
+						)
+						),
+					'show_category_for_all'  => array(
+						'type'          => 'select',
+						'label'         => __('Show Category for All', 'fl-builder'),
 						'default'       => '0',
 						'options'       => array(
 							'1'             => __('Yes', 'fl-builder'),

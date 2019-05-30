@@ -38,7 +38,7 @@ if($settings->show_filters == '1' && $query->have_posts()) :
 			$child_terms = get_terms( array( 'taxonomy' => 'portfolio_category', 'parent' => $parent_term_id ) );
 			?>
 			<ul class="filter-list filter-list-<?php echo $counter; ?>">
-				<li class="<?php echo $parent_term->slug; ?>-item filter-item selected"><a class="all" href="#"><?php _e( 'All ', 'fl-builder' ); echo $parent_term->name; ?></a></li>
+				<li class="<?php echo $parent_term->slug; ?>-item filter-item selected"><a class="all" href="#"><?php _e( 'All ', 'fl-builder' ); if($settings->show_category_for_all == '1' ) : echo $parent_term->name; endif; ?></a></li>
 				<?php foreach ( $child_terms as $child_term ) { ?>
 					<li class="<?php echo $parent_term->slug; ?>-item filter-item"><a class="<?php echo $child_term->slug ?>" href="<?php echo get_term_link($child_term->slug, $taxonomy); ?>"><?php echo $child_term->name; ?></a></li>
 				<?php } ?>
