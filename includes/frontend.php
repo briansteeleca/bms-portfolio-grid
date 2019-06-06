@@ -1,16 +1,50 @@
 <?php
 wp_reset_query();
 
+function sort_display_order($a, $b) {
+	if ($a->display_order == $b->display_order) {
+			return 0;
+	} elseif ($a->display_order < $b->display_order) {
+			return -1;
+	} else {
+			return 1;
+	}
+}
+
 // Get the query data.
 $query = FLBuilderLoop::query($settings);
 
+// Get the Portfolio Categories from settings – these will be used to get parent categories for filters
+$category_ids_to_display = $settings->tax_portfolio_portfolio_category;
+// Create an array of Portfolio Categories to determine the order to display them
+$category_order = explode(',', $category_ids_to_display);
+
 // Show filters if "Show Filters" option is set to Yes
 if($settings->show_filters == '1' && $query->have_posts()) :
-
 	// Display taxonomy terms for filtering portfolio grid
 	$taxonomy = 'portfolio_category';
 	// Get parent (top-level) terms for taxonomy
-	$parent_terms = get_terms( $taxonomy, array( 'parent' => 0, 'orderby'  => 'slug' ) );
+	if ( !empty( $category_ids_to_display )  ) :
+		// Get the parent categories for filters based on Portfolio Categories in settings.
+		// Note: Although non-parent Portfolio Categories can be selected in settings, only parent categories will be used as filters.
+		$parent_terms = get_terms( $taxonomy, array( 'include' => $category_ids_to_display, 'parent' => 0 ) );
+
+		if ($parent_terms) :
+			// Loop through parent categories...
+			foreach ($parent_terms as $index => $term) {
+				// Get the display order of the parent categories based on the category order in the Portfolio Categories settings.
+				$display_order  = array_search($parent_terms[$index]->term_id, $category_order);
+				$parent_terms[$index]->display_order = $display_order;					
+			}
+			// ... And sort based on 'display_order'.
+			usort($parent_terms, 'sort_display_order');
+		endif;
+
+	else :
+		// TODO: remove this after we've updated Portfolio Categories in all sites. For now, leaving it for backwards compatibility.
+		// If no Portfolio Categories are displayed, just find the first two.
+		$parent_terms = get_terms( $taxonomy, array( 'parent' => 0, 'orderby'  => 'slug' ) );
+	endif;
 	?>
 
 	<div class="filter-wrapper">
